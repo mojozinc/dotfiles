@@ -1,0 +1,14 @@
+#!/usr/local/bin/zsh
+music(){
+    query=$1
+    # echo $filter
+    playlist=~/.r_music_playlist 
+    if [[ -z "$query" ]];then
+        reddio print r/music/ > $playlist
+    else
+        reddio print -q $query r/music/ > $playlist
+    fi
+    grep -E "https?://\w*\.youtube.com" $playlist | shuf > $playlist.uri
+    mpv --no-video --playlist $playlist.uri
+}
+music $@
