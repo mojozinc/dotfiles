@@ -5,3 +5,6 @@
 - lazygit
 - ripgrep
 - mpv
+- ncdu - for checking disk storage
+- maccy
+- tldr
